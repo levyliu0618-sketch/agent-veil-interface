@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An interactive Agent Veil design proposal. Explore six kinds of process information while reviewing the same artifact.">
+  <title>Agent Veil — Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='4' width='24' height='24' rx='6' fill='%23263432'/%3E%3Cpath d='M11 10v12M16 10v12M21 10v12' stroke='%23fff' stroke-width='2' opacity='.8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#artifact">Skip to artifact</a>
+  <header class="app-header">
+    <a class="brand" href="./" aria-label="Agent Veil workspace"><span class="logo" aria-hidden="true">Ⅲ</span><strong>Agent Veil</strong></a>
+    <span class="header-divider"></span><span class="workspace-label">Workspace <span class="slash">/</span> Workshop booking</span>
+    <nav aria-label="Main navigation"><a class="nav-active" href="./">Prototype</a><a href="research.html">Design & research <span aria-hidden="true">↗</span></a><button class="icon-button" id="help-button" aria-label="How to use this prototype">?</button></nav>
+  </header>
+  <div class="demo-bar"><span><span class="dot"></span> DESIGN PROPOSAL <span class="bar-separator">/</span> Scripted demo · no live AI</span><span class="demo-note">Same task. Same run. Choose what you see.</span></div>
+  <main class="workspace">
+    <aside class="task-panel" aria-label="Task and requirements">
+      <div class="eyebrow">YOUR TASK</div>
+      <h1>Build a workshop <br>booking page.</h1>
+      <p class="task-intro">Let visitors reserve places, see the price, and receive a clear confirmation.</p>
+      <div class="section-label">Requirements <span>04</span></div>
+      <ul class="requirements">
+        <li><span class="req-number">1</span><span>Allow <strong>1–8 seats</strong>. Reject zero and over-capacity bookings.</span></li>
+        <li><span class="req-number">2</span><span>Charge <strong>$45 per seat</strong>. Give 10% off for <strong>4 or more</strong> seats.</span></li>
+        <li><span class="req-number">3</span><span>Show the total before booking and a confirmation afterwards.</span></li>
+        <li><span class="req-number">4</span><span>Support a narrow screen and keyboard use.</span></li>
+      </ul>
+      <details class="project-files"><summary>Project files <span class="muted">3</span></summary><div class="file">▧ &nbsp; brief.md</div><div class="file">▧ &nbsp; booking.js</div><div class="file">▧ &nbsp; booking.test.js</div></details>
+      <div class="task-tip"><span class="tip-icon">↗</span><p><strong>Try the result.</strong><br>Choose four seats. Does the price match the brief?</p></div>
+      <div class="sidebar-bottom"><span class="tiny-label">DEMO BOUNDARY</span><p>All agent messages, checks and handoffs are authored examples. Nothing is submitted or collected.</p><a href="research.html#scope">What this prototype tests ↗</a></div>
+    </aside>
+    <section class="artifact-panel" id="artifact" aria-label="Artifact preview">
+      <div class="panel-heading"><div><span class="mini-icon">▣</span><strong>Artifact</strong><span class="panel-subtitle">Interactive preview</span></div><span class="version-badge" id="artifact-badge">v3 · Latest</span></div>
+      <div class="artifact-toolbar"><div id="version-controls" class="version-controls" aria-label="Artifact version"></div><div class="device-controls" aria-label="Preview size"><button id="desktop-button" class="selected" aria-label="Desktop preview" aria-pressed="true">Desktop</button><button id="mobile-button" aria-label="Mobile preview" aria-pressed="false">Mobile</button></div></div>
+      <div id="comparison" hidden></div>
+      <div class="preview-stage" id="preview-stage"><div class="preview-frame" id="preview-frame">
+        <div class="browser-chrome"><span class="browser-dots">● ● ●</span><span>preview / workshop</span><span aria-hidden="true">↗</span></div>
+        <div id="product" class="product"></div>
+      </div></div>
+      <div class="artifact-footer"><span id="version-caption">v3 · Pricing boundary fixed</span><button id="compare-button" class="text-button">Compare versions ↗</button></div>
+      <div class="review-strip"><div><span class="tiny-label">YOUR REVIEW</span><p id="review-copy">Does this version meet the brief?</p></div><div class="review-actions"><button data-review="approve">Looks ready</button><button data-review="inspect">Needs a closer look</button></div></div>
+    </section>
+    <section class="process-panel" aria-label="Agent process">
+      <div class="panel-heading"><div><span class="mini-icon">≡</span><strong>Process</strong></div><button id="visibility-button" class="visibility-button" aria-haspopup="dialog"><span aria-hidden="true">☷</span> Visibility <span id="layer-count">4/6</span></button></div>
+      <div class="process-intro"><div class="run-line"><span id="run-state" class="status-pill">Run complete</span><span class="muted">Example run · 01</span></div><p id="process-summary">Built the page, checked the pricing, and fixed a boundary error.</p><div class="playback-controls"><button id="replay-button"><span aria-hidden="true">▷</span> Replay run</button><button id="end-button" class="text-button" hidden>Skip to end</button><span id="replay-count">6 / 6 steps</span></div><div class="progress-track"><div id="progress-fill"></div></div></div>
+      <div class="active-view"><span id="view-label">Custom view</span><button id="why-button" class="text-button">Why these layers?</button></div>
+      <div id="steps" class="steps"></div>
+      <div id="process-empty" class="empty-state" hidden><span aria-hidden="true">◌</span><strong>Process hidden</strong><p>The artifact is still here. Open Visibility to choose the details you want to see.</p><button class="secondary" id="empty-settings">Choose information</button></div>
+      <div class="process-footer">Showing a scripted run. A summary is not proof of correctness.</div>
+    </section>
+  </main>
+  <dialog id="visibility-dialog" class="settings-dialog" aria-labelledby="visibility-title">
+    <div class="dialog-header"><div><span class="eyebrow">MAKE THE PROCESS VISIBLE</span><h2 id="visibility-title">Choose what you see</h2></div><button class="close-button" data-close aria-label="Close visibility settings">×</button></div>
+    <p class="dialog-description">Six kinds of information, adjusted independently. These settings change the display, not the work.</p>
+    <div class="preset-field"><label for="preset">Start from a preset</label><select id="preset"><option value="custom">Custom view</option><option value="1">1 · Black box — result only</option><option value="2">2 · Grey box — short status</option><option value="3">3 · Narration — running commentary</option><option value="4">4 · Narration + tools</option><option value="5">5 · Narration + thinking</option><option value="6">6 · Everything</option></select><p>Presets combine information types; they are not a ranking of quality. Version and subagent settings are included in this proposal’s mapping.</p></div>
+    <div id="layer-settings"></div>
+    <div class="dialog-footer"><button id="reset-layers" class="text-button">Reset to proposed view</button><button class="primary" data-close>Done</button></div>
+  </dialog>
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title"><div class="dialog-header"><div><span class="eyebrow">A TWO-MINUTE WALKTHROUGH</span><h2 id="help-title">Review the work, at your pace.</h2></div><button class="close-button" data-close aria-label="Close walkthrough">×</button></div><ol class="walkthrough"><li><strong>Try the artifact.</strong> Choose four seats and reserve them. No actual booking is made.</li><li><strong>Inspect a step.</strong> Open “Check the booking rules” to see what was checked and what was missed.</li><li><strong>Adjust Visibility.</strong> Show reasoning notes, full tool results, or delegated work. The final artifact does not change.</li><li><strong>Compare versions.</strong> v2 and v3 differ at the four-seat discount boundary. Version 1 is a layout draft.</li><li><strong>Replay the run.</strong> Follow the authored sequence from the brief to the finished page.</li></ol><p class="callout">This is an individual design proposal for discussion, not a validated study or a working AI service. Review choices stay in this tab and disappear on reload.</p><a class="inline-link" href="research.html">Read the research behind each layer ↗</a></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
